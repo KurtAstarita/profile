@@ -241,3 +241,42 @@ footer {
 .social-share-list img:hover {
     opacity: 1;
 }
+
+/* ------------------- Blogger Feed Styles ------------------------- */
+
+#blogger-feed ul {
+  list-style: none; /* Remove bullet points */
+  padding: 0;
+  margin-bottom: 20px; /* Add some space below the list */
+}
+
+#blogger-feed li {
+  margin-bottom: 15px; /* Add space between list items */
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee; /* Add a subtle separator */
+}
+
+#blogger-feed li:last-child {
+  border-bottom: none; /* Remove separator from the last item */
+}
+
+#blogger-feed li a {
+  color: #333; /* Dark text color for the title */
+  text-decoration: none; /* Remove underlines from links */
+  font-weight: bold;
+  font-size: 1.1em; /* Slightly larger title */
+}
+
+#blogger-feed li a:hover {
+  color: #007bff; /* Change color on hover (your theme color?) */
+}
+
+#blogger-feed li p {
+  color: #666; /* Gray color for the content snippet and date */
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+#blogger-feed li p:first-of-type { /* Style the content snippet */
+  margin-bottom: 5px;
+}
