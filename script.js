@@ -54,5 +54,6 @@ window.handleBloggerFeed = function(data) {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOMContentLoaded event fired. Calling loadBloggerFeed...'); // Added for debugging
   loadBloggerFeed('https://post40gains.kurtastarita.com/feeds/posts/default', 'blogger-feed-container');
 });
