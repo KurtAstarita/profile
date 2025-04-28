@@ -1,9 +1,9 @@
 function handleBloggerFeed(data) {
   const posts = data.items.map(item => ({
     title: item.title,
-    content: item.description || '', // rss2json uses 'description' for the snippet
+    content: (item.description || '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&'), // Replace &nbsp; and &amp;
     url: item.link,
-    date: new Date(item.pubDate).toLocaleDateString() // Format the date
+    date: new Date(item.pubDate).toLocaleDateString()
   }));
 
   let html = '<ul>';
