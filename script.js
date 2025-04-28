@@ -1,4 +1,5 @@
-let bloggerFeedContainerId; // Global variable to store the container ID
+let bloggerFeedContainerId; // Global variable for container ID
+let bloggerFeedNumPosts; // Global variable for the number of posts
 
 function loadBloggerFeed(feedUrl, containerId, numPosts = 3) {
   bloggerFeedContainerId = containerId; // Assign the containerId to the global variable
