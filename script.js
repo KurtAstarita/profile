@@ -37,6 +37,7 @@ window.handleBloggerFeed = function(data) {
   // Append the script tag to load the JSON-P data
   document.head.appendChild(script);
 }
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   loadBloggerFeed('https://post40gains.kurtastarita.com/feeds/posts/default', 'blogger-feed-container');
