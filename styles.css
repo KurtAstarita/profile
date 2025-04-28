@@ -61,6 +61,8 @@ body {
     background-color: #0056b3;
 }
 
+/* ------------- Social Icons Top Bar --------------- */
+
 .social-icons {
     display: flex;
     justify-content: center;
@@ -78,6 +80,29 @@ body {
 .social-icons img:hover {
     opacity: 1;
 }
+
+
+/* ----------------- Social Icons Follow.it Button ------------------ */
+
+.social-icons-2 {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.social-icons-2 img {
+    width: 165px;
+    height: 30px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.social-icons-2 img:hover {
+    opacity: 1;
+}
+
+/* ------------------------ Footer -------------------------- */
 
 footer {
     color: #999;
