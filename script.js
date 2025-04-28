@@ -41,5 +41,5 @@
 
   // Call the function to load the feed when the page loads
   document.addEventListener('DOMContentLoaded', () => {
-    loadBloggerFeed('https://post40gains.kurtastarita.com/feeds/posts/default', 'blogger-feed-container');
+    loadBloggerFeed('https://feeds.feedburner.com/post40gains/feed', 'blogger-feed-container');
   });
