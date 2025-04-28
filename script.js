@@ -1,45 +1,58 @@
-  function loadBloggerFeed(feedUrl, containerId, numPosts = 3) {
-    fetch(feedUrl)
-      .then(response => response.text())
-      .then(xmlText => {
-        const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
-        const items = xmlDoc.querySelectorAll('item');
-        const feedContainer = document.getElementById(containerId);
+function loadBloggerFeed(feedUrl, containerId, numPosts = 3) {
+  const jsonpUrl = feedUrl + '?alt=json-in-script&callback=handleBloggerFeed';
 
-        if (!feedContainer) {
-          console.error(`Container with ID '${containerId}' not found.`);
-          return;
+  // Create a script tag to inject into the document
+  const script = document.createElement('script');
+  script.src = jsonpUrl;
+  script.async = true;
+  script.onerror = function() {
+    console.error('Failed to load Blogger feed (JSON-P).');
+    const feedContainer = document.getElementById(containerId);
+    if (feedContainer) {
+      feedContainer.innerHTML = '<p>Failed to load recent blog posts.</p>';
+    }
+  };
+
+  // Define the callback function that will process the JSON data
+  window.handleBloggerFeed = function(data) {
+    const feedContainer = document.getElementById(containerId);
+    if (!feedContainer) {
+      console.error(`Container with ID '${containerId}' not found.`);
+      return;
+    }
+
+    if (!data || !data.feed || !data.feed.entry) {
+      feedContainer.innerHTML = '<p>No recent posts found or invalid feed format.</p>';
+      return;
+    }
+
+    let feedHTML = '<h3>Recent Blog Posts</h3><ul>';
+    const entries = data.feed.entry;
+    for (let i = 0; i < Math.min(numPosts, entries.length); i++) {
+      const entry = entries[i];
+      const title = entry.title.$t;
+      let link = '#';
+      if (entry.link) {
+        const alternateLink = entry.link.find(item => item.rel === 'alternate');
+        if (alternateLink) {
+          link = alternateLink.href;
         }
+      }
+      const published = new Date(entry.published.$t).toLocaleDateString();
 
-        if (items.length === 0) {
-          feedContainer.innerHTML = '<p>No recent posts found.</p>';
-          return;
-        }
+      feedHTML += `<li><a href="<span class="math-inline">\{link\}" target\="\_blank" rel\="noopener noreferrer"\></span>{title}</a> <span class="post-date">(${published})</span></li>`;
+    }
+    feedHTML += '</ul>';
+    feedContainer.innerHTML = feedHTML;
 
-        let feedHTML = '<h3>Recent Blog Posts</h3><ul>';
-        for (let i = 0; i < Math.min(numPosts, items.length); i++) {
-          const item = items[i];
-          const title = item.querySelector('title').textContent;
-          const link = item.querySelector('link').textContent;
-          const pubDate = new Date(item.querySelector('pubDate').textContent).toLocaleDateString();
-          // You can extract a summary or content snippet if needed
+    // Clean up the callback function
+    delete window.handleBloggerFeed;
+  };
 
-          feedHTML += `<li><a href="${link}" target="_blank" rel="noopener noreferrer">${title}</a> <span class="post-date">(${pubDate})</span></li>`;
-        }
-        feedHTML += '</ul>';
-        feedContainer.innerHTML = feedHTML;
-      })
-      .catch(error => {
-        console.error('Error fetching Blogger feed:', error);
-        const feedContainer = document.getElementById(containerId);
-        if (feedContainer) {
-          feedContainer.innerHTML = '<p>Failed to load recent blog posts.</p>';
-        }
-      });
-  }
+  // Append the script tag to load the JSON-P data
+  document.head.appendChild(script);
+}
 
-  // Call the function to load the feed when the page loads
-  document.addEventListener('DOMContentLoaded', () => {
-    loadBloggerFeed('https://post40gains.kurtastarita.com/feeds/posts/default', 'blogger-feed-container');
-  });
+document.addEventListener('DOMContentLoaded', () => {
+  loadBloggerFeed('https://post40gains.kurtastarita.com/feeds/posts/default', 'blogger-feed-container');
+});
