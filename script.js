@@ -20,7 +20,7 @@ function loadBloggerFeed(feedUrl, containerId, numPosts = 3) {
 }
 
 window.handleBloggerFeed = function(data) {
-  const feedContainer = document.getElementById(bloggerFeedContainerId); // Use the global variable
+  const feedContainer = document.getElementById(bloggerFeedContainerId);
   if (!feedContainer) {
     console.error(`Container with ID '${bloggerFeedContainerId}' not found.`);
     return;
@@ -33,7 +33,7 @@ window.handleBloggerFeed = function(data) {
 
   let feedHTML = '<h3>Recent Blog Posts</h3><ul>';
   const entries = data.feed.entry;
-  for (let i = 0; i < Math.min(numPosts, entries.length); i++) {
+  for (let i = 0; i < Math.min(bloggerFeedNumPosts, entries.length); i++) { // Changed 'numPosts' to 'bloggerFeedNumPosts'
     const entry = entries[i];
     const title = entry.title.$t;
     let link = '#';
@@ -52,7 +52,3 @@ window.handleBloggerFeed = function(data) {
 
   delete window.handleBloggerFeed;
 };
-
-document.addEventListener('DOMContentLoaded', () => {
-  loadBloggerFeed('https://post40gains.kurtastarita.com/feeds/posts/default', 'blogger-feed-container');
-});
