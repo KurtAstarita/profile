@@ -1,3 +1,20 @@
+function loadBloggerFeed(feedUrl, containerId, numPosts = 3) {
+  const jsonpUrl = feedUrl + '?alt=json-in-script&callback=handleBloggerFeed';
+  const script = document.createElement('script');
+  script.src = jsonpUrl;
+  script.async = true;
+
+  script.onerror = function() {
+    console.error('Failed to load Blogger feed (JSON-P).');
+    const feedContainer = document.getElementById(containerId);
+    if (feedContainer) {
+      feedContainer.innerHTML = '<p>Failed to load recent blog posts.</p>';
+    }
+  };
+
+  document.head.appendChild(script);
+}
+
 window.handleBloggerFeed = function(data) {
   const feedContainer = document.getElementById(containerId);
   if (!feedContainer) {
@@ -17,7 +34,6 @@ window.handleBloggerFeed = function(data) {
     const title = entry.title.$t;
     let link = '#';
     if (entry.link) {
-      // Find the link with rel="alternate"
       const alternateLink = entry.link.find(item => item.rel === 'alternate');
       if (alternateLink) {
         link = alternateLink.href;
@@ -30,13 +46,8 @@ window.handleBloggerFeed = function(data) {
   feedHTML += '</ul>';
   feedContainer.innerHTML = feedHTML;
 
-    // Clean up the callback function
-    delete window.handleBloggerFeed;
-  }; // Closing brace of handleBloggerFeed
-
-  // Append the script tag to load the JSON-P data
-  document.head.appendChild(script); // Line 38
-} // Closing brace of loadBloggerFeed
+  delete window.handleBloggerFeed;
+};
 
 document.addEventListener('DOMContentLoaded', () => {
   loadBloggerFeed('https://post40gains.kurtastarita.com/feeds/posts/default', 'blogger-feed-container');
