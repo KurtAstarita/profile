@@ -1,59 +1,30 @@
-let bloggerFeedContainerId; // Global variable for container ID
-let bloggerFeedNumPosts; // Global variable for the number of posts
+function handleBloggerFeed(data) {
+  const posts = data.items.map(item => ({
+    title: item.title,
+    content: item.content_html || item.content_text || '', // Prefer HTML, fallback to text
+    url: item.url,
+    date: item.date_published // Assuming date is in a usable format
+  }));
 
-function loadBloggerFeed(feedUrl, containerId, numPosts = 3) {
-  bloggerFeedContainerId = containerId; // Assign the containerId to the global variable
-  const jsonpUrl = feedUrl + '?alt=json-in-script&callback=handleBloggerFeed';
-  const script = document.createElement('script');
-  script.src = jsonpUrl;
-  script.async = true;
+  let html = '<ul>';
+  posts.forEach(post => {
+    html += `
+      <li>
+        <a href="${post.url}">${post.title}</a>
+        <p>${post.content.substring(0, 100)}...</p>
+        <p>Published: ${post.date}</p>
+      </li>
+    `;
+  });
+  html += '</ul>';
 
-  script.onerror = function() {
-    console.error('Failed to load Blogger feed (JSON-P).');
-    const feedContainer = document.getElementById(bloggerFeedContainerId); // Use the global variable
-    if (feedContainer) {
-      feedContainer.innerHTML = '<p>Failed to load recent blog posts.</p>';
-    }
-  };
-
-  document.head.appendChild(script);
+  document.getElementById('blogger-feed').innerHTML = html;
 }
 
-window.handleBloggerFeed = function(data) {
-  const feedContainer = document.getElementById(bloggerFeedContainerId);
-  if (!feedContainer) {
-    console.error(`Container with ID '${bloggerFeedContainerId}' not found.`);
-    return;
-  }
+// Example fetch
+const feedUrl = 'https://www.toptal.com/developers/feed2json/convert?url=https%3A%2F%2Fpost40gains.kurtastarita.com%2Ffeeds%2Fposts%2Fdefault';
 
-  if (!data || !data.feed || !data.feed.entry) {
-    feedContainer.innerHTML = '<p>No recent posts found or invalid feed format.</p>';
-    return;
-  }
-
-  let feedHTML = '<h3>Recent Blog Posts</h3><ul>';
-  const entries = data.feed.entry;
-  for (let i = 0; i < Math.min(bloggerFeedNumPosts, entries.length); i++) { // Changed 'numPosts' to 'bloggerFeedNumPosts'
-    const entry = entries[i];
-    const title = entry.title.$t;
-    let link = '#';
-    if (entry.link) {
-      const alternateLink = entry.link.find(item => item.rel === 'alternate');
-      if (alternateLink) {
-        link = alternateLink.href;
-      }
-    }
-    const published = new Date(entry.published.$t).toLocaleDateString();
-
-    feedHTML += `<li><a href="${link}" target="_blank" rel="noopener noreferrer">${title}</a> <span class="post-date">(${published})</span></li>`;
-  }
-  feedHTML += '</ul>';
-  feedContainer.innerHTML = feedHTML;
-
-  delete window.handleBloggerFeed;
-};
-
-document.addEventListener('DOMContentLoaded', () => {
-  console.log('DOMContentLoaded event fired. Calling loadBloggerFeed...'); // Added for debugging
-  loadBloggerFeed('https://post40gains.kurtastarita.com/feeds/posts/default', 'blogger-feed-container');
-});
+fetch(feedUrl)
+  .then(response => response.json())
+  .then(data => handleBloggerFeed(data))
+  .catch(error => console.error('Error fetching or parsing feed:', error));
