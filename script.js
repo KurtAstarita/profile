@@ -52,3 +52,7 @@ window.handleBloggerFeed = function(data) {
 
   delete window.handleBloggerFeed;
 };
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadBloggerFeed('https://post40gains.kurtastarita.com/feeds/posts/default', 'blogger-feed-container');
+});
