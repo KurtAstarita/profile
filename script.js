@@ -1,53 +1,38 @@
-function loadBloggerFeed(feedUrl, containerId, numPosts = 3) {
-  const jsonpUrl = feedUrl + '?alt=json-in-script&callback=handleBloggerFeed';
+window.handleBloggerFeed = function(data) {
+  const feedContainer = document.getElementById(containerId);
+  if (!feedContainer) {
+    console.error(`Container with ID '${containerId}' not found.`);
+    return;
+  }
 
-  // Create a script tag to inject into the document
-  const script = document.createElement('script');
-  script.src = jsonpUrl;
-  script.async = true;
-  script.onerror = function() {
-    console.error('Failed to load Blogger feed (JSON-P).');
-    const feedContainer = document.getElementById(containerId);
-    if (feedContainer) {
-      feedContainer.innerHTML = '<p>Failed to load recent blog posts.</p>';
-    }
-  };
+  if (!data || !data.feed || !data.feed.entry) {
+    feedContainer.innerHTML = '<p>No recent posts found or invalid feed format.</p>';
+    return;
+  }
 
-  // Define the callback function that will process the JSON data
-  window.handleBloggerFeed = function(data) {
-    const feedContainer = document.getElementById(containerId);
-    if (!feedContainer) {
-      console.error(`Container with ID '${containerId}' not found.`);
-      return;
-    }
-
-    if (!data || !data.feed || !data.feed.entry) {
-      feedContainer.innerHTML = '<p>No recent posts found or invalid feed format.</p>';
-      return;
-    }
-
-    let feedHTML = '<h3>Recent Blog Posts</h3><ul>';
-    const entries = data.feed.entry;
-    for (let i = 0; i < Math.min(numPosts, entries.length); i++) {
-      const entry = entries[i];
-      const title = entry.title.$t;
-      let link = '#';
-      if (entry.link) {
-        const alternateLink = entry.link.find(item => item.rel === 'alternate');
-        if (alternateLink) {
-          link = alternateLink.href;
-        }
+  let feedHTML = '<h3>Recent Blog Posts</h3><ul>';
+  const entries = data.feed.entry;
+  for (let i = 0; i < Math.min(numPosts, entries.length); i++) {
+    const entry = entries[i];
+    const title = entry.title.$t;
+    let link = '#';
+    if (entry.link) {
+      // Find the link with rel="alternate"
+      const alternateLink = entry.link.find(item => item.rel === 'alternate');
+      if (alternateLink) {
+        link = alternateLink.href;
       }
-      const published = new Date(entry.published.$t).toLocaleDateString();
-
-      feedHTML += `<li><a href="<span class="math-inline">\{link\}" target\="\_blank" rel\="noopener noreferrer"\></span>{title}</a> <span class="post-date">(${published})</span></li>`;
     }
-    feedHTML += '</ul>';
-    feedContainer.innerHTML = feedHTML;
+    const published = new Date(entry.published.$t).toLocaleDateString();
 
-    // Clean up the callback function
-    delete window.handleBloggerFeed;
-  };
+    feedHTML += `<li><a href="${link}" target="_blank" rel="noopener noreferrer">${title}</a> <span class="post-date">(${published})</span></li>`;
+  }
+  feedHTML += '</ul>';
+  feedContainer.innerHTML = feedHTML;
+
+  // Clean up the callback function
+  delete window.handleBloggerFeed;
+};
 
   // Append the script tag to load the JSON-P data
   document.head.appendChild(script);
