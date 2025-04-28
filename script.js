@@ -1,9 +1,9 @@
 function handleBloggerFeed(data) {
   const posts = data.items.map(item => ({
     title: item.title,
-    content: item.content_html || item.content_text || '', // Prefer HTML, fallback to text
-    url: item.url,
-    date: item.date_published // Assuming date is in a usable format
+    content: item.description || '', // rss2json uses 'description' for the snippet
+    url: item.link,
+    date: new Date(item.pubDate).toLocaleDateString() // Format the date
   }));
 
   let html = '<ul>';
@@ -21,8 +21,8 @@ function handleBloggerFeed(data) {
   document.getElementById('blogger-feed').innerHTML = html;
 }
 
-// Example fetch
-const feedUrl = 'https://www.toptal.com/developers/feed2json/convert?url=https%3A%2F%2Fpost40gains.kurtastarita.com%2Ffeeds%2Fposts%2Fdefault';
+// Updated feed URL for rss2json
+const feedUrl = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fpost40gains.kurtastarita.com%2Ffeeds%2Fposts%2Fdefault';
 
 fetch(feedUrl)
   .then(response => response.json())
