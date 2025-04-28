@@ -30,14 +30,13 @@ window.handleBloggerFeed = function(data) {
   feedHTML += '</ul>';
   feedContainer.innerHTML = feedHTML;
 
-  // Clean up the callback function
-  delete window.handleBloggerFeed;
-};
+    // Clean up the callback function
+    delete window.handleBloggerFeed;
+  }; // Closing brace of handleBloggerFeed
 
   // Append the script tag to load the JSON-P data
-  document.head.appendChild(script);
-}
-}
+  document.head.appendChild(script); // Line 38
+} // Closing brace of loadBloggerFeed
 
 document.addEventListener('DOMContentLoaded', () => {
   loadBloggerFeed('https://post40gains.kurtastarita.com/feeds/posts/default', 'blogger-feed-container');
