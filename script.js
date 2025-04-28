@@ -1,4 +1,7 @@
+let bloggerFeedContainerId; // Global variable to store the container ID
+
 function loadBloggerFeed(feedUrl, containerId, numPosts = 3) {
+  bloggerFeedContainerId = containerId; // Assign the containerId to the global variable
   const jsonpUrl = feedUrl + '?alt=json-in-script&callback=handleBloggerFeed';
   const script = document.createElement('script');
   script.src = jsonpUrl;
@@ -6,7 +9,7 @@ function loadBloggerFeed(feedUrl, containerId, numPosts = 3) {
 
   script.onerror = function() {
     console.error('Failed to load Blogger feed (JSON-P).');
-    const feedContainer = document.getElementById(containerId);
+    const feedContainer = document.getElementById(bloggerFeedContainerId); // Use the global variable
     if (feedContainer) {
       feedContainer.innerHTML = '<p>Failed to load recent blog posts.</p>';
     }
@@ -16,9 +19,9 @@ function loadBloggerFeed(feedUrl, containerId, numPosts = 3) {
 }
 
 window.handleBloggerFeed = function(data) {
-  const feedContainer = document.getElementById(containerId);
+  const feedContainer = document.getElementById(bloggerFeedContainerId); // Use the global variable
   if (!feedContainer) {
-    console.error(`Container with ID '${containerId}' not found.`);
+    console.error(`Container with ID '${bloggerFeedContainerId}' not found.`);
     return;
   }
 
