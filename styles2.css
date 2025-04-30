@@ -1,49 +1,55 @@
 body {
     font-family: sans-serif;
-    margin: 20px; /* Added some margin around the body */
-    background-color: #f4f4f4;
-    color: #333;
+    margin: 0; /* Removed default body margin */
+    background-color: #f4f4f4; /* Keep the background color */
     display: flex;
-    justify-content: center; /* Center the content horizontally */
+    justify-content: center; /* Center the container */
     align-items: flex-start; /* Align items to the top */
-    min-height: auto; /* Adjust min-height for longer content */
+    min-height: 100vh; /* Ensure full viewport height */
 }
 
 .container {
-    background-color: #fff;
-    margin: 20px; /* Increased margin */
+    background-color: #fff; /* White background for the policy content */
+    margin: 20px; /* Add some margin around the container */
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 30px;
     width: 90%;
-    max-width: 960px; /* Wider max-width for the privacy policy */
-    text-align: left; /* Align text to the left for better readability in longer content */
+    max-width: 960px; /* Wider max-width */
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the back link button */
 }
 
 header {
-    background-color: #333;
-    color: white;
-    padding: 1em;
-    border-radius: 5px;
+    width: 100%; /* Make header span the container width */
+    text-align: center; /* Center the title */
     margin-bottom: 20px;
-    text-align: center; /* Center the title in the header */
 }
 
 header p {
-    margin-bottom: 0.5em;
+    margin-bottom: 1em;
 }
 
 header a {
-    color: #ddd;
+    display: inline-block; /* Allows centering */
+    background-color: #007bff; /* Use your primary button color */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
 header a:hover {
-    text-decoration: underline;
+    background-color: #0056b3;
+    text-decoration: none;
 }
 
 main {
+    width: 100%; /* Make main content span the container width */
     padding: 20px;
 }
 
@@ -62,12 +68,14 @@ section:last-child {
 h1, h2 {
     color: #333;
     margin-top: 0;
+    text-align: center; /* Center the policy title */
 }
 
 h2 {
     border-bottom: 2px solid #ccc;
     padding-bottom: 10px;
     margin-bottom: 15px;
+    text-align: left; /* Align section titles to the left */
 }
 
 p {
@@ -84,7 +92,7 @@ li {
 }
 
 a {
-    color: #007bff; /* Use your primary link color */
+    color: #007bff;
     text-decoration: none;
 }
 
@@ -96,8 +104,6 @@ footer {
     text-align: center;
     margin-top: 30px;
     padding: 1em;
-    background-color: #333;
-    color: white;
-    border-radius: 5px;
+    color: #999;
     font-size: 0.8em;
 }
