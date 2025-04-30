@@ -1,23 +1,42 @@
 body {
     font-family: sans-serif;
-    line-height: 1.6;
-    margin: 20px;
+    margin: 20px; /* Added some margin around the body */
     background-color: #f4f4f4;
     color: #333;
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: flex-start; /* Align items to the top */
+    min-height: auto; /* Adjust min-height for longer content */
+}
+
+.container {
+    background-color: #fff;
+    margin: 20px; /* Increased margin */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 90%;
+    max-width: 960px; /* Wider max-width for the privacy policy */
+    text-align: left; /* Align text to the left for better readability in longer content */
 }
 
 header {
     background-color: #333;
-    color: #fff;
-    padding: 1em 20px;
-    text-align: center;
+    color: white;
+    padding: 1em;
+    border-radius: 5px;
     margin-bottom: 20px;
+    text-align: center; /* Center the title in the header */
+}
+
+header p {
+    margin-bottom: 0.5em;
 }
 
 header a {
     color: #ddd;
     text-decoration: none;
-    font-size: 0.9em;
+    font-weight: bold;
 }
 
 header a:hover {
@@ -25,12 +44,7 @@ header a:hover {
 }
 
 main {
-    max-width: 960px; /* Wider layout */
-    margin: 20px auto;
-    background-color: #fff;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 section {
@@ -70,7 +84,7 @@ li {
 }
 
 a {
-    color: #007bff;
+    color: #007bff; /* Use your primary link color */
     text-decoration: none;
 }
 
@@ -81,9 +95,9 @@ a:hover {
 footer {
     text-align: center;
     margin-top: 30px;
-    padding: 1em 20px;
+    padding: 1em;
     background-color: #333;
-    color: #fff;
-    border-radius: 8px;
+    color: white;
+    border-radius: 5px;
     font-size: 0.8em;
 }
