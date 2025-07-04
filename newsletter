@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>Subscribe to Post40Gains - Get Kurt's Latest Fitness Insights!</title> 
+    <meta name="description" content="Never miss an update from Post40Gains! Subscribe via Follow.it for Kurt Astarita's cutting-edge fitness strategies, experiments, and mindset insights for men over 40.">
+    <meta name="keywords" content="Post40Gains, Kurt Astarita, fitness over 40, muscle building, fat loss, health, men's fitness, workout, nutrition, subscribe, follow.it, newsletter, free guide">
+    <meta name="author" content="Kurt Astarita">
+
+    <meta property="og:title" content="Subscribe to Post40Gains - Get Kurt's Latest Fitness Insights!">
+    <meta property="og:description" content="Never miss an update from Post40Gains! Subscribe via Follow.it for Kurt Astarita's cutting-edge fitness strategies, experiments, and mindset insights for men over 40.">
+    <meta property="og:image" content="https://profile.kurtastarita.com/profile.png"> <meta property="og:url" content="https://profile.kurtastarita.com/subscribe-post40gains.html"> <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Post40Gains by Kurt Astarita">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image"> <meta name="twitter:site" content="@kurtastarita"> 
+    <meta name="twitter:creator" content="@kurtastarita"> 
+    <meta name="twitter:title" content="Subscribe to Post40Gains - Kurt Astarita">
+    <meta name="twitter:description" content="Get Kurt's latest Post-40 fitness strategies, experiments, and mindset insights delivered instantly.">
+    <meta name="twitter:image" content="https://profile.kurtastarita.com/profile.png"> <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2MPDSZD0M"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-J2MPDSZD0M');
+    </script>
+    
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://api.follow.it; form-action 'self' https://api.follow.it; style-src 'self' 'unsafe-inline';"> <link rel="stylesheet" href="styles-followit.css"> </head>
+<body>
+    <div class="container">
+        <div class="branding">
+            <img src="profile.png" alt="Kurt Astarita - Post40Gains" class="profile-img">
+            <h1>Post40Gains by Kurt Astarita</h1>
+            <p class="tagline">Your Roadmap to Strength, Health, & Longevity After 40.</p>
+        </div>
+
+        <div class="subscribe-section">
+            <h2>Get My Latest Insights. Delivered Instantly.</h2>
+            <p>Ready to cut through the noise and get actionable, science-backed strategies for building muscle, losing fat, and optimizing your health after 40?</p>
+            <p>Join **The Driven & Discerning Lifelong Learners** who are already transforming their fitness journey with my "guinea pig" experiments and real-world advice.</p>
+            
+            <div class="lead-magnet-box">
+                <h3>⭐ FREE BONUS: The Post40Gains "Daily Discipline Checklist" ⭐</h3>
+                <p>Subscribe now and I'll send you my personal checklist for staying consistent, motivated, and on track every single day. No fluff, just results.</p>
+                <img src="checklist-thumbnail.png" alt="Daily Discipline Checklist Thumbnail" class="lead-magnet-thumbnail"> </div>
+
+            <p class="cta-instruction">Enter your email below to get instant access to new articles and your FREE checklist!</p>
+            
+            <div class="followit-white-box-wrapper">
+                <div class="followit--follow-form-container" attr-a attr-b attr-c attr-d attr-e attr-f>
+                    <form data-v-ef8c0665="" action="https://api.follow.it/subscription-form/dkU4NU1IeS95STNGQXFuVGF1SnozSG5wK202Uitpem1GRVRpRFpxYjRXUXZQNEcyTmNHWU9DYVpIV0JXY2MzeUJOOFhRSVQwZ2FhNFA0bnhaU3ZxMXNVVVkxVWcwbEkvSnN1UmNZRUh1STkwY2lvbGRaaUdtazNuc2dHVy82U018ZFZUSmJuWEN1YldMamUrZ0NEYUZDclVQYzI0Yzd0anEreTBZM3ZBT3lOUT0=/8" method="post">
+                        <div data-v-ef8c0665="" class="form-preview">
+                            <div data-v-ef8c0665="" class="preview-heading">
+                                <h5 data-v-ef8c0665="">Get new posts by email:</h5>
+                            </div>
+                            <div data-v-ef8c0665="" class="preview-input-field">
+                                <input data-v-ef8c0665="" type="email" name="email" required="" placeholder="Enter your email" spellcheck="false" />
+                            </div>
+                            <div data-v-ef8c0665="" class="preview-submit-button">
+                                <button data-v-ef8c0665="" type="submit">Subscribe</button>
+                            </div>
+                        </div>
+                    </form>
+                    <a href="https://follow.it" class="powered-by-line">Powered by Follow.it</a>
+                </div>
+            </div>
+
+            <p class="privacy-note">You'll receive automated updates for new blog posts. We respect your privacy and will never spam you.</p>
+        </div>
+
+        <div class="back-to-blog">
+            <p>Looking for something else? <a href="https://post40gains.kurtastarita.com" class="link-text">Visit the main Post40Gains blog here.</a></p>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Kurt Astarita - Post40Gains. All rights reserved.</p>
+            <p><a href="privacy.html" class="link-text">Privacy Policy</a> | <a href="tos.html" class="link-text">Terms Of Service</a></p>
+        </footer>
+    </div>
+</body>
+</html>
