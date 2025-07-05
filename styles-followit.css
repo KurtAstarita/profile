@@ -236,11 +236,13 @@ footer {
     margin-top: auto;
 }
 
+
 /* Back to Blog Section */
 .back-to-blog {
     text-align: center; /* This rule centers the text and inline content */
     padding: 20px 20px 30px;
-    background-color: #333;
+    /* Removed background-color as it will be replaced by the gradient */
+    background: linear-gradient(to top, black, #333); /* Black at the bottom, #333 at the top */
 }
 
 /* Social Links Grid (for Thank You page) */
