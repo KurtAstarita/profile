@@ -30,7 +30,7 @@ body {
     overflow: hidden; /* For potential background elements */
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
-    /* New gradient: black at top, #333 at bottom, starting at 50% */
+    /* Gradient: Black on top, dark gray (#333) on bottom, starting in the middle */
     background: linear-gradient(to bottom, black 50%, #333 50%);
 }
 
