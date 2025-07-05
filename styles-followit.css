@@ -24,14 +24,13 @@ body {
 .branding {
     text-align: center;
     padding: 40px 20px 30px;
-    /* Remove background-color as it will be replaced by the gradient */
     color: white;
     position: relative;
     overflow: hidden; /* For potential background elements */
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
-    /* Gradient: Black on top, dark gray (#333) on bottom, starting in the middle */
-    background: linear-gradient(to bottom, black 50%, #333 50%);
+    /* Gradient: Black on top, dark gray (#333) on bottom, starting its transition around the middle */
+    background: linear-gradient(to bottom, black 0%, #333 80%); /* Black from top, transition to #333 by 80% down */
 }
 
 .branding .profile-img {
