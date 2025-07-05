@@ -1,12 +1,195 @@
-/* Add to your existing styles-followit.css */
-
-/* General Thank You Section Styles */
-.thank-you-section {
-    /* Inherits most styles from .subscribe-section */
-    padding-top: 25px; /* Adjust padding as needed for this section */
-    padding-bottom: 25px;
+/* General Body and Base Styles */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6; /* Light background for the page */
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
+/* Main Container for Centering and Max-Width */
+.container {
+    max-width: 700px; /* Constrain content width */
+    margin: 40px auto; /* Center the container with vertical margin */
+    background-color: #ffffff; /* White background for the content area */
+    border-radius: 12px; /* Softly rounded corners */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    overflow: hidden; /* Ensures content stays within rounded corners */
+}
+
+/* Branding Section Styles */
+.branding {
+    text-align: center;
+    padding: 40px 20px 30px;
+    background-color: #007bff; /* Primary brand color (blue) */
+    color: white;
+    position: relative;
+    overflow: hidden; /* For potential background elements */
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.branding .profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Circular image */
+    border: 5px solid rgba(255, 255, 255, 0.3); /* Lighter border for contrast */
+    object-fit: cover;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.branding h1 {
+    margin: 0;
+    font-size: 2.2em;
+    font-weight: 700;
+    line-height: 1.2;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.branding .tagline {
+    font-size: 1.1em;
+    margin-top: 10px;
+    opacity: 0.9;
+}
+
+/* Shared Section Styling for Subscribe and Thank You Pages */
+.subscribe-section,
+.thank-you-section {
+    padding: 30px 35px;
+    text-align: center;
+}
+
+.subscribe-section h2,
+.thank-you-section h2 {
+    font-size: 1.8em;
+    color: #2c3e50; /* Darker text for headings */
+    margin-top: 0;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.subscribe-section p,
+.thank-you-section p {
+    font-size: 1.05em;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.subscribe-section p.cta-instruction,
+.thank-you-section p.cta-instruction {
+    font-size: 1.15em;
+    font-weight: bold;
+    color: #007bff; /* Primary blue for call to action */
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+/* Lead Magnet Offer Box */
+.lead-magnet-box {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 30px auto;
+    max-width: 500px; /* Constrain width for the box */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.lead-magnet-box h3 {
+    color: #28a745; /* Green for emphasis/success */
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.lead-magnet-box p {
+    font-size: 1em;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.lead-magnet-thumbnail {
+    width: 100%;
+    max-width: 200px; /* Control image size */
+    height: auto;
+    margin-top: 15px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+}
+
+/* FOLLOW.IT Specific Form Styling */
+.followit-white-box-wrapper {
+    margin: 20px auto;
+    max-width: 400px; /* Keep form contained */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.followit--follow-form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.followit--follow-form-container .preview-heading h5 {
+    font-size: 1.1em;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.followit--follow-form-container .preview-input-field input[type="email"] {
+    width: calc(100% - 20px); /* Adjust for padding */
+    padding: 12px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.followit--follow-form-container .preview-submit-button button {
+    background-color: #007bff; /* Blue button */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.followit--follow-form-container .preview-submit-button button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.powered-by-line {
+    font-size: 0.8em;
+    color: #888;
+    text-decoration: none;
+    margin-top: 15px;
+    display: block;
+}
+
+.powered-by-line:hover {
+    text-decoration: underline;
+}
+
+.privacy-note {
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 25px;
+    padding: 0 15px; /* Add some horizontal padding */
+}
+
+/* Thank You Page Specific Styles */
 .thank-you-section p.final-note {
     font-size: 1.1em;
     font-weight: bold;
@@ -14,7 +197,7 @@
     margin-top: 30px;
 }
 
-/* Download Button Styling */
+/* Download Button Styling (for Thank You page) */
 .download-button {
     display: inline-block;
     background-color: #28a745; /* Green for download/success */
@@ -42,7 +225,7 @@
     margin-bottom: 20px;
 }
 
-/* Social Links Grid */
+/* Social Links Grid (for Thank You page) */
 .social-links-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Responsive grid */
@@ -66,28 +249,4 @@
     border: 1px solid #ddd;
     border-radius: 8px;
     transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.social-link:hover {
-    background-color: #f0f2f5;
-    transform: translateY(-2px);
-    color: #007bff;
-}
-
-.social-link .social-icon {
-    width: 40px; /* Size of your social icons */
-    height: 40px;
-    margin-bottom: 8px;
-}
-
-/* Responsive adjustments for social links */
-@media (max-width: 480px) {
-    .social-links-grid {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Smaller icons/links on very small screens */
-        gap: 10px;
-    }
-    .social-link .social-icon {
-        width: 35px;
-        height: 35px;
-    }
 }
