@@ -114,7 +114,7 @@ body {
 
 .lead-magnet-thumbnail {
     width: 100%;
-    max-width: 200px; /* Control image size */
+    max-width: 350px; /* Control image size */
     height: auto;
     margin-top: 15px;
     border-radius: 5px;
