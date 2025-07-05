@@ -24,12 +24,14 @@ body {
 .branding {
     text-align: center;
     padding: 40px 20px 30px;
-    background-color: #111; /* Primary brand color (black) */
+    /* Remove background-color as it will be replaced by the gradient */
     color: white;
     position: relative;
     overflow: hidden; /* For potential background elements */
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
+    /* New gradient: black at top, #333 at bottom, starting at 50% */
+    background: linear-gradient(to bottom, black 50%, #333 50%);
 }
 
 .branding .profile-img {
