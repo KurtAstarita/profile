@@ -281,3 +281,8 @@ footer {
     color: #007bff; /* Changes to this primary blue on hover or keyboard focus */
     text-decoration: none; /* Removes the underline on hover/focus */
 }
+
+/* Make that arrow white for max visibility, my man! */
+.arrow-white {
+    color: #ffffff; /* BLING! White arrow engaged! */
+}
