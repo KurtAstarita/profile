@@ -236,6 +236,15 @@ footer {
     margin-top: auto;
 }
 
+/* Back to Blog Section */
+.back-to-blog {
+    text-align: center; /* This rule centers the text and inline content */
+    padding: 20px 20px 30px;
+    background-color: #f0f4f7;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
 /* Social Links Grid (for Thank You page) */
 .social-links-grid {
     display: grid;
