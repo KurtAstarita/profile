@@ -22,7 +22,7 @@ function handleBloggerFeed(data) {
 }
 
 // Updated feed URL for rss2json
-const feedUrl = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fpost40gains.kurtastarita.com%2Ffeeds%2Fposts%2Fdefault&api_key=yombrnkzl82mfkcj04mpufopooii8rjvymptgry5';
+const feedUrl = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.kurtastarita.com%2Ffeeds%2Fposts%2Fdefault&api_key=yombrnkzl82mfkcj04mpufopooii8rjvymptgry5';
 
 fetch(feedUrl)
   .then(response => response.json())
