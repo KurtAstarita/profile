@@ -335,3 +335,49 @@ footer {
 .arrow-white {
     color: #ffffff; /* BLING! White arrow engaged! */
 }
+
+/* --- NEW STYLES FOR THE CAPTURE FORM --- */
+
+/* Initially hide the vault so only the form is visible */
+#secret-vault {
+    display: none;
+}
+
+.capture-form { 
+    max-width: 400px; 
+    margin: 0 auto 20px; 
+}
+
+.capture-input { 
+    width: 100%; 
+    padding: 14px; 
+    margin-bottom: 15px; 
+    border: 2px solid #e0e0e0; 
+    border-radius: 6px; 
+    font-size: 16px; 
+    font-family: 'Helvetica Neue', Arial, sans-serif; 
+    box-sizing: border-box; 
+    text-align: center; 
+}
+
+.capture-btn { 
+    width: 100%; 
+    padding: 15px; 
+    background-color: #007bff; 
+    color: white; 
+    border: none; 
+    border-radius: 6px; 
+    font-size: 1.1em; 
+    font-weight: bold; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+}
+
+.capture-btn:hover { 
+    background-color: #0056b3; 
+}
+
+/* Adjusts the fine-print text under the form and button */
+.muted-text {
+    color: #888 !important;
+}
