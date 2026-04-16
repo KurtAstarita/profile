@@ -338,10 +338,6 @@ footer {
 
 /* --- NEW STYLES FOR THE CAPTURE FORM --- */
 
-/* Initially hide the vault so only the form is visible */
-#secret-vault {
-    display: none;
-}
 
 .capture-form { 
     max-width: 400px; 
